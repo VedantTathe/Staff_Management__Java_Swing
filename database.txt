@@ -1,0 +1,327 @@
+
+
+create database staffmanagement;
+use staffmanagement;
+
+create table registeradmin
+(
+	fullname varchar(30) not null,
+    mobno int(11) not null,
+    emailid varchar(30) not null,
+    gender varchar(10) not null,
+    dob date not null ,
+    uname varchar(20) primary key,
+    upass varchar(20) not null,
+    regdate datetime not null,
+    img blob
+);
+
+drop table registeradmin;
+select * from registeradmin;
+
+create table availstaff
+(
+	ID int primary key auto_increment,
+    FULLNAME varchar(30) not null,
+    MOBNO int(11) not null,
+    ADDRESS varchar(60) not null,
+    PINCODE int,
+    REG_DATE datetime not null,
+    GENDER varchar(10) not null,
+    SALARY int not null,
+    QUALIFICATION varchar(30) not null,
+    suname varchar(30) not null,
+    spass varchar(30) not null,
+    adminname varchar(30) not null
+);
+
+drop table availstaff;
+select * from availstaff;
+
+select * from availstaff where id=5;
+
+
+
+create table classes
+(
+	dept_sem varchar(30) not null,
+    staff_name varchar(30) not null
+);
+drop table classes;
+select * from classes;
+
+create table students
+(
+	ID varchar(10) not null unique,
+    STUDENT_NAME varchar(40) not null,
+    MOBILE_NUMBER varchar(20) not null, 
+    DOB date not null,
+    EMAIL varchar(20),
+    ADDRESS varchar(40) not null,
+    ADMISSION_DATE datetime not null,
+    GENDER varchar(20) not null,
+    RELIGION varchar(30) not null,
+    CASTE varchar(30) not null,
+    BLOOD_GROUP varchar(10) not null, 
+    CLASS_NAME varchar(30) not null,
+    staff_name varchar(30) not null
+);
+drop table students;
+select * from students;
+
+select ID from students where CLASS_NAME = 'COMPUTER (6th SEM)';
+delete from students where CLASS_NAME = 'COMPUTER (6th SEM)';
+
+
+create table attendance
+(
+ id varchar(40) unique not null,
+ atten varchar(40) default "Absent",
+ check (atten="Present")
+ );
+ 
+ select * from attendance;
+ drop table attendance;
+
+
+insert into attendance (id,present) values(10,'present');
+
+
+
+
+
+
+
+
+
+create database mydba;
+drop database mydba;
+
+use mydba;
+create table hospital(
+ id varchar(10) primary key , 
+ firstname varchar(10),
+ lastname varchar(20),
+ address varchar(20),
+ email varchar(40),
+ doctorname varchar(20),
+ mobile int
+ );
+ 
+drop table hospital;
+select * from hospital;
+
+insert into hospital values(101,'jack','white','amt','jack@gmail.com','my doc',9090);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create database mydb;
+use mydb;
+
+drop database mydb;
+
+
+create table student
+(
+   id Int(4) primary key,
+   name varchar(10),
+   dept varchar(20)
+);
+
+drop table student;
+select * from student;
+
+insert into student values(11,"White","cs");
+insert into student values(12,"Mark","me");
+insert into student values(13,"Chris","etx");
+insert into student values(14,"Marnus","it");
+insert into student values(15,"Miller","ce");
+
+create table b
+(
+id int,
+name varchar(20),
+acc_no int
+);
+
+select * from b;
+drop table b;
+
+
+drop table emp;
+select * from emp;
+
+
+
+
+
+select * from dwij;
+select count(*) from employee;
+select sum(salary) from employee;
+select max(salary) from employee;
+select min(salary) from employee;
+
+select * from employee where jobid != 2 and jobid !=3;
+select *  from employee where salary = salary * 1.15 and salary > 50000;
+
+select * from employee where emp_name like '____'; 
+
+insert into employee values(1010,'Jack',10000,'2005-04-20');
+insert into employee values(1020,'Mark',1000,'2002-01-28');
+
+select year('2005-04-20') - year('2002-01-28');
+
+
+insert into employee values(1030,'White',20000,'2002-01-28');
+insert into employee values(1040,'Ben',3000,'2002-01-28');
+insert into employee (empno,emp_name,salary) values(12,'Markram',90000);
+insert into employee values(13,'Marnus',10000,200);
+insert into employee (empno,emp_name,salary) values(14,'Mitchell',45000);
+insert into employee (empno,emp_name,salary)values(15,'Marsh',78000);
+
+select * from employee where empno in(14,15);
+
+select ascii('t') from dual;
+select instr('Dwij chaudhari','c');
+select lower('DWIJ');
+select lpad('dwij',8,'o');
+select ltrim('123dwij','123');
+select strcmp('dwij','smith');
+
+select exp(6);
+
+select adddate("2017-06-15 08:34:23","2");
+select addtime("2017-06-15 08:34:23","2");
+select curdate();
+select current_date();
+select current_time();
+select date('2023-06-12');
+select date_add("2017-06-15",interval 10 day);
+select day("2018-05-15");
+select dayname("2018-05-15");
+select dayofmonth("2018-05-15");
+select hour("08:34:23");
+select last_day("2018-05-15");
+select now();
+select minute('08:34:23');
+select monthname("2018-05-15");
+select second('2017-06-15 08:34:23');
+select sysdate();
+select time('08:34:23');
+select datediff(day,'2010-01-07','2012-10-07');
+
+select substr('production sales',3,4);
+select instr('production', 'ro') from dual;
+SELECT DATEDIFF(year, '2017/08/25', '2011/08/25');
+
+create table employee1
+(
+   empname varchar(20),
+   salary Int(8)
+);
+
+
+create table employee2
+(
+   empname varchar(20),
+   salary Int(8)
+);
+
+select * from employee1;
+select * from employee2;
+
+insert into employee1 values('Tony',1000);
+insert into employee1 values('Mark',2000);
+insert into employee1 values('White',3000);
+
+insert into employee2 values('Tony',4000);
+insert into employee2 values('Mark',2000);
+insert into employee2 values('John',6000);
+
+select * from employee where salary > (select avg(salary));
+
+select sqrt(16);
+select mod(10,3);
+
+
+
+
+
+
+select lower('HELLO');
+
